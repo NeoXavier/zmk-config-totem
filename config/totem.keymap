@@ -22,6 +22,31 @@
 #define TVP1 4
 #define TVP2 5
 
+#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
+#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
+
+#define U_MS_U &mmv MOVE_UP
+#define U_MS_D &mmv MOVE_DOWN
+#define U_MS_L &mmv MOVE_LEFT
+#define U_MS_R &mmv MOVE_RIGHT
+#define U_WH_U &msc SCRL_UP
+#define U_WH_D &msc SCRL_DOWN
+#define U_WH_L &msc SCRL_LEFT
+#define U_WH_R &msc SCRL_RIGHT
+
+// Config from @caksoylar, defaults in comments
+&mmv {
+  acceleration-exponent = <1>;      // 1
+  time-to-max-speed-ms = <500>;     // 300
+  delay-ms = <0>;                   // 0
+};
+
+&msc {
+  acceleration-exponent = <1>;      // 0
+  time-to-max-speed-ms = <40>;      // 300
+  delay-ms = <0>;                   // 0
+};
+
 &mt {
     quick-tap-ms = <100>;
     global-quick-tap;
@@ -189,8 +214,8 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &sys_reset   &trans          &mmv MOVE_UP    &trans          &msc SCRL_DOWN      &none  &none           &kp UP_ARROW    &none      &none
-       &bootloader  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_LEFT  &msc SCRL_UP        &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &none
+       &sys_reset   &trans          U_MS_U          &trans          U_WH_D              &none  &none           &kp UP_ARROW    &none      &none
+       &bootloader  U_MS_L          U_MS_D          U_MS_R          U_WH_U              &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &none
 &kp J  &trans       &trans          &trans          &trans          &trans              &none  &none           &none           &none      &none  &none
                                     &kp LEFT_GUI    &mkp LCLK       &mkp RCLK           &none  &none           &none
             >;
