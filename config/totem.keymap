@@ -188,10 +188,10 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &sys_reset   &trans          &mmv MOVE_UP    &trans          &mwh MOVE_DOWN    &none  &none           &kp UP_ARROW    &none      &none
-       &bootloader  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_LEFT  &mwh SCROLL_UP    &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &none
-&kp J  &trans       &trans          &trans          &trans          &trans            &none  &none           &none           &none      &none  &none
-                                    &kp LEFT_GUI    &mkp LCLK       &mkp RCLK         &none  &none           &none
+       &sys_reset   &trans          &mmv MOVE_UP    &trans          &msc SCROLL_DOWN    &none  &none           &kp UP_ARROW    &none      &none
+       &bootloader  &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_LEFT  &msc SCROLL_UP      &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &none
+&kp J  &trans       &trans          &trans          &trans          &trans              &none  &none           &none           &none      &none  &none
+                                    &kp LEFT_GUI    &mkp LCLK       &mkp RCLK           &none  &none           &none
             >;
         };
 
