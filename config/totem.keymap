@@ -10,20 +10,9 @@
 //
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 
+#include "mouse.dsti"
 #include <behaviors.dtsi>
-#include <behaviors/mouse_keys.dtsi>
 #include <dt-bindings/zmk/keys.h>
-#include <dt-bindings/zmk/mouse.h>
-
-#define BASE 0
-#define NAV  1
-#define SYM  2
-#define ADJ  3
-#define TVP1 4
-#define TVP2 5
-
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 1500  // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 20    // 10
 
 #define U_MS_U &mmv MOVE_UP
 #define U_MS_D &mmv MOVE_DOWN
@@ -33,19 +22,6 @@
 #define U_WH_D &msc SCRL_DOWN
 #define U_WH_L &msc SCRL_LEFT
 #define U_WH_R &msc SCRL_RIGHT
-
-// Config from @caksoylar, defaults in comments
-&mmv {
-  acceleration-exponent = <1>;      // 1
-  time-to-max-speed-ms = <500>;     // 300
-  delay-ms = <0>;                   // 0
-};
-
-&msc {
-  acceleration-exponent = <1>;      // 0
-  time-to-max-speed-ms = <40>;      // 300
-  delay-ms = <0>;                   // 0
-};
 
 &mt {
     quick-tap-ms = <100>;
@@ -63,30 +39,6 @@
             key-positions = <0 1>;
             bindings = <&kp ESC>;
         };
-
-        combo_tvp {
-            timeout-ms = <100>;
-            key-positions = <11 12 13>;
-            bindings = <&tog 4>;
-        };
-    };
-
-    macros {
-        gif: gif {
-            label = "giphy";
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings =
-                <&macro_press>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp N2>,
-                <&macro_release>,
-                <&kp LSHFT>,
-                <&macro_tap>,
-                <&kp G &kp I &kp F>;
-        };
-    };
 
     keymap {
         compatible = "zmk,keymap";
@@ -214,7 +166,7 @@
             //                                     ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛   ┗━━━━━━━━━━━┻━━━━━━━━━━━┻━━━━━━━━━━━┛
 
             bindings = <
-       &sys_reset   &trans          U_MS_U          &trans          U_WH_D              &none  &none           &kp UP_ARROW    &none      &none
+       &sys_reset   &trans          U_MS_U          &trans          U_WH_D              &kp y  &none           &kp UP_ARROW    &none      &none
        &bootloader  U_MS_L          U_MS_D          U_MS_R          U_WH_U              &none  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT  &none
 &kp J  &trans       &trans          &trans          &trans          &trans              &none  &none           &none           &none      &none  &none
                                     &kp LEFT_GUI    &mkp LCLK       &mkp RCLK           &none  &none           &none
