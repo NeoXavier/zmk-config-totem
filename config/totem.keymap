@@ -111,7 +111,7 @@
            &kp EXCL       &kp AT  &kp HASH   &kp DLLR  &kp PRCNT           &kp CARET          &kp AMPS        &kp ASTRK  &kp LEFT_PARENTHESIS  &kp RIGHT_PARENTHESIS
            &kp RA(TILDE)  &trans  &kp RA(S)  &trans    &kp LEFT_BRACE      &kp RIGHT_BRACE    &kp UNDERSCORE  &kp MINUS  &kp RA(EQUAL)         &kp NON_US_BACKSLASH
 &kp GRAVE  &trans         &trans  &trans     &trans    &kp LEFT_BRACKET    &kp RIGHT_BRACKET  &kp PLUS        &trans     &trans                &trans                 &kp PIPE
-                                  &trans     &gif      &kp LEFT_SHIFT      &trans             &trans          &trans
+                                  &trans     &trans      &kp LEFT_SHIFT      &trans             &trans          &trans
             >;
         };
 
