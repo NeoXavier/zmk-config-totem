@@ -1,0 +1,1 @@
+- Change location of bluetooth clear
