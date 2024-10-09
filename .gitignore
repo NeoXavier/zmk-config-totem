@@ -5,6 +5,9 @@
 modules
 firmware
 zmk
+.DS_Store
+**/.DS_Store
 # Ignore keymap-drawer output for now
 draw/base.svg
 draw/base.yaml
+
