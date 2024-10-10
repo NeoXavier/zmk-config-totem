@@ -43,6 +43,10 @@
     require-prior-idle-ms = <100>;
 };
 
+&lt {
+    require-prior-idle-ms = <100>;
+}
+
 / {
     keymap {
         compatible = "zmk,keymap";
