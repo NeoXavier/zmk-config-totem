@@ -1,1 +1,2 @@
 - Change location of bluetooth clear
+- Add sleep and wake functions
