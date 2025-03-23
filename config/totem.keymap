@@ -12,7 +12,6 @@
 
 #include <behaviors/mouse_keys.dtsi>
 #include <dt-bindings/zmk/mouse.h>
-#include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/pointing.h>
@@ -22,18 +21,16 @@
 #define Sym 2
 #define Func 3
 #define Movement 4
-#define ZMK_MOUSE_DEFAULT_MOVE_VAL 2500 // 600
-#define ZMK_MOUSE_DEFAULT_SCRL_VAL 15    // 10
 
 &mmv {
     acceleration-exponent = <1>;      // 1
-    time-to-max-speed-ms = <300>;     // 300
+    time-to-max-speed-ms = <500>;     // 300
     delay-ms = <0>;                   // 0
 };
 
 &msc {
     acceleration-exponent = <1>;      // 0
-    time-to-max-speed-ms = <10>;      // 300
+    time-to-max-speed-ms = <40>;      // 10
     delay-ms = <0>;                   // 0
 };
 
