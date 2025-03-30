@@ -22,6 +22,8 @@
 #define Sym 2
 #define Func 3
 #define Movement 4
+#define ZMK_POINTING_DEFAULT_MOVE_VAL 2500  // default: 600
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 15    // default: 10
 
 &mmv {
     acceleration-exponent = <1>;      // 1
