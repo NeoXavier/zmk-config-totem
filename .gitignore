@@ -4,6 +4,7 @@
 .west
 modules
 firmware
+stable_firmware
 zmk
 .DS_Store
 **/.DS_Store

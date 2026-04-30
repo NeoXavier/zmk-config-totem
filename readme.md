@@ -28,3 +28,59 @@ TOTEM is a 38 key column-staggered split keyboard running [ZMK](https://zmk.dev/
 - the keyboard should now appear as a mass storage device
 - drag'n'drop the `totem_left-seeeduino_xiao_ble-zmk.uf2` file from the archive onto the storage device
 - repeat this process with the right half and the `totem_right-seeeduino_xiao_ble-zmk.uf2` file.
+
+---
+
+## PERSONAL CONFIG
+
+This config uses a **USB dongle** setup: left half, right half, and a dongle — all **Seeeduino XIAO BLE**. The dongle is the BLE central (host); the two halves are peripherals.
+
+### Important Files
+
+| File | Purpose |
+|---|---|
+| `build.yaml` | Defines build targets — left, right, dongle, settings_reset |
+| `config/totem.keymap` | **Main keymap** — edit this to change keys/layers |
+| `config/totem.conf` | Global firmware settings (BLE power, pointing, logging) |
+| `config/boards/shields/totem/totem_dongle.conf` | Dongle-specific config (2 peripherals, sleep) |
+| `config/boards/shields/totem/totem_dongle.overlay` | Dongle GPIO pin assignments |
+| `config/boards/shields/totem/totem_left/right.conf/.overlay` | Per-half configs |
+| `Justfile` | Build task runner |
+
+### Layers
+
+| # | Name | Activated by |
+|---|---|---|
+| 0 | **Base** | Default (QWERTY) |
+| 1 | **Num** | Hold `TAB` (left thumb) |
+| 2 | **Sym** | Hold `ENTER` (right thumb) |
+| 3 | **Func** | Hold `ESC` (outer left pinky) |
+| 4 | **Movement** | Hold `'` (outer right pinky) |
+| 5 | **BT** | Hold `F12` while in Func layer |
+
+Home row mods on `A S D F` (and mirrored right): Shift / Ctrl / Alt / GUI.
+
+### Local Build Workflow
+
+```bash
+# First-time setup
+just init
+
+# Build all targets
+just build all
+
+# Build a specific target (e.g. dongle only)
+just build dongle
+
+# Clean build cache
+just clean
+
+# Redraw keymap diagram
+just draw
+```
+
+GitHub Actions (`.github/workflows/build.yml`) builds firmware on every push — grab `.uf2` files from CI artifacts without building locally.
+
+### Changing Keys
+
+Edit `config/totem.keymap`, find the layer you want, and update its `bindings = < ... >` block. Positions map to physical keys in row order (top→bottom, left→right). Then run `just build all` or push to trigger CI.

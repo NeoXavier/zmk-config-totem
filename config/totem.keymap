@@ -37,11 +37,19 @@
     delay-ms = <0>;                   // 0
 };
 
+//Changes made:
+//   - flavor: tap-preferred → balanced — hold+keypress now triggers the modifier instead of outputting the tap character
+//   - require-prior-idle-ms: 100 → 150 — gives a slightly longer idle window before the balanced logic kicks in, reducing accidental mods during burst typing while still
+//   allowing intentional holds
+//
+//   If you still get accidental mods during fast typing (e.g. rolling keys quickly triggers modifiers), you can increase require-prior-idle-ms up to 200. If holds still feel
+//   sluggish, try lowering tapping-term-ms to 175.
+
 &mt {
-    flavor = "tap-preferred";
+    flavor = "balanced";
     tapping-term-ms = <200>;
     quick-tap-ms = <200>;
-    require-prior-idle-ms = <100>;
+    require-prior-idle-ms = <150>;
 };
 
 &lt { require-prior-idle-ms = <100>; };
